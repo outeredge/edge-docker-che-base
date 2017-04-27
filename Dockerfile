@@ -5,6 +5,4 @@ RUN apk --no-cache add tar bash bash-completion unzip git make && \
 
 WORKDIR /projects
 
-COPY run.sh /
-
-CMD ["/run.sh"]
+CMD export DREDGER_MOUNT=$(docker inspect --format '{{ range .Mounts }}{{ if eq .Destination "'"$CHE_PROJECTS_ROOT"'" }}{{ .Source }}{{ end }}{{ end }}' $HOSTNAME) && tail -f /dev/null
