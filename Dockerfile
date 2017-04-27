@@ -5,4 +5,6 @@ RUN apk --no-cache add tar bash bash-completion unzip git make && \
 
 WORKDIR /projects
 
-CMD tail -f /dev/null
+COPY run.sh /
+
+CMD ["/run.sh"]
