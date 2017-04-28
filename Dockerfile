@@ -3,6 +3,7 @@ FROM eclipse/stack-base:ubuntu
 USER root
 
 ENV DOCKER_VERSION 1.11.2
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get install -y --no-install-recommends make nano netcat nodejs && \
