@@ -2,8 +2,10 @@ FROM ubuntu:16.04
 
 ENV DOCKER_VERSION 1.11.2
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends bash-completion unzip git make openssh-server nano curl ca-certificates wget && \
+    apt-get install -y --no-install-recommends bash-completion unzip git make openssh-server nano curl ca-certificates wget software-properties-common apt-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
