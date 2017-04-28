@@ -1,8 +1,8 @@
 [
   {
-    "id":"edge",
-    "name":"Edge Stack",
-    "description":"outer/edge Docker Stack with Dredger",
+    "id":"edge-docker-che-base",
+    "name":"Dredger",
+    "description":"Build Docker Images with Dredger",
     "creator":"outer/edge",
     "scope":"general",
     "tags":[
