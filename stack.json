@@ -96,15 +96,6 @@
           "commandLine":"cd ${current.project.path} && dredger update"
         },
         {
-          "name":"watch",
-          "type":"custom",
-          "attributes":{
-            "previewUrl":"",
-            "goal":"Run"
-          },
-          "commandLine":"cd ${current.project.path} && dredger watch"
-        },
-        {
           "name":"test",
           "type":"custom",
           "attributes":{
