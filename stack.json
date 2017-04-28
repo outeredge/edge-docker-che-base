@@ -1,0 +1,124 @@
+[
+  {
+    "id":"edge",
+    "name":"Edge Stack",
+    "description":"outer/edge Docker Stack with Dredger",
+    "creator":"outer/edge",
+    "scope":"general",
+    "tags":[
+      "docker",
+      "php",
+      "git",
+      "magento"
+    ],
+    "source":{
+      "origin":"outeredge/edge-docker-che-base",
+      "type":"image"
+    },
+    "components":[
+      {
+        "name":"dredger",
+        "version":"---"
+      },
+      {
+        "name":"git",
+        "version":"---"
+      }
+    ],
+    "workspaceConfig":{
+      "name":"default",
+      "defaultEnv":"default",
+      "environments":{
+        "default":{
+          "recipe":{
+            "location":"outeredge/edge-docker-che-base",
+            "type":"dockerimage"
+          },
+          "machines":{
+            "dev-machine":{
+              "attributes":{
+                "memoryLimitBytes":"1073741824"
+              },
+              "agents":[
+                "org.eclipse.che.exec",
+                "org.eclipse.che.terminal",
+                "org.eclipse.che.ws-agent",
+                "org.eclipse.che.ssh",
+                "org.eclipse.che.ls.json",
+                "org.eclipse.che.ls.php"
+              ],
+              "servers":{
+
+              }
+            }
+          }
+        }
+      },
+      "commands":[
+        {
+          "name":"run",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"http://${explorer.current.project.name}.${machine.dev.hostname}.eclipse.edge-servers.com",
+            "goal":"Run"
+          },
+          "commandLine":"export DREDGER_MOUNT=$(docker inspect --format '{{ range .Mounts }}{{ if eq .Destination \"'\"$CHE_PROJECTS_ROOT\"'\" }}{{ .Source }}{{ end }}{{ end }}' $HOSTNAME)\ncd ${current.project.path} && dredger run\nsleep 2147483647"
+        },
+        {
+          "name":"build",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Build"
+          },
+          "commandLine":"export DREDGER_MOUNT=$(docker inspect --format '{{ range .Mounts }}{{ if eq .Destination \"'\"$CHE_PROJECTS_ROOT\"'\" }}{{ .Source }}{{ end }}{{ end }}' $HOSTNAME)\ncd ${current.project.path} && dredger build"
+        },
+        {
+          "name":"destroy",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Common"
+          },
+          "commandLine":"cd ${current.project.path} && dredger destroy"
+        },
+        {
+          "name":"update dependencies",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Run"
+          },
+          "commandLine":"cd ${current.project.path} && dredger update"
+        },
+        {
+          "name":"watch",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Run"
+          },
+          "commandLine":"cd ${current.project.path} && dredger watch"
+        },
+        {
+          "name":"test",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Test"
+          },
+          "commandLine":"cd ${current.project.path} && dredger test"
+        },
+        {
+          "name":"logs",
+          "type":"custom",
+          "attributes":{
+            "previewUrl":"",
+            "goal":"Debug"
+          },
+          "commandLine":"cd ${current.project.path} && dredger logs"
+        }
+      ]
+    }
+  }
+]
