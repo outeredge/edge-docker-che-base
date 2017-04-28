@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 ENV DOCKER_VERSION 1.11.2
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends bash-completion unzip git make openssh-server nano curl ca-certificates && \
+    apt-get install -y --no-install-recommends bash-completion unzip git make openssh-server nano curl ca-certificates wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
