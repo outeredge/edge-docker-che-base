@@ -23,6 +23,10 @@
       {
         "name":"git",
         "version":"---"
+      },
+      {
+        "name":"docker",
+        "version":"1.11.2"
       }
     ],
     "workspaceConfig":{
