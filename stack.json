@@ -41,7 +41,7 @@
           "machines":{
             "dev-machine":{
               "attributes":{
-                "memoryLimitBytes":"2147483648"
+                "memoryLimitBytes":"8589934592"
               },
               "agents":[
                 "org.eclipse.che.exec",
