@@ -7,8 +7,6 @@ USER root
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get install -y --no-install-recommends make nano netcat nodejs jq && \
-    groupadd docker && usermod -aG docker user && usermod -a -G www-data user && \
     wget -qO- https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz | tar zxf - --strip=1 -C /usr/local/bin/ && \
-    wget -qO- https://raw.githubusercontent.com/outeredge/dredger/master/install.sh | sh
-
-USER user
+    wget -qO- https://raw.githubusercontent.com/outeredge/dredger/master/install.sh | sh && \
+    echo -e "if [ -f /etc/bash_completion ]; then\n  . /etc/bash_completion\nfi" >> /root/.bashrc
