@@ -7,3 +7,4 @@ Minimal ubuntu-based image that includes the following tools:
 * Dredger
 * Git
 * Zip
+* MySQL Client
