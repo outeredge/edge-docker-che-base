@@ -11,4 +11,5 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo bash - && \
 CMD DOCKER_GID=$(stat -c '%g' /var/run/docker.sock) && \
     sudo groupadd -for -g ${DOCKER_GID} docker && \
     sudo usermod -aG docker user && \
+    sudo usermod -aG www-data user && \
     tail -f /dev/null
