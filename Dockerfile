@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo bash - && \
     sudo apt-get install -y --no-install-recommends make nano netcat nodejs jq mysql-client && \
     wget -qO- https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}-ce.tgz | sudo tar zxf - --strip=1 -C /usr/local/bin/ && \
-    wget -qO- https://raw.githubusercontent.com/outeredge/dredger/master/install.sh | sudo sh
+    wget -qO- https://raw.githubusercontent.com/outeredge/dredger/master/install.sh | sudo bash
 
 CMD DOCKER_GID=$(stat -c '%g' /var/run/docker.sock) && \
     sudo groupadd -for -g ${DOCKER_GID} docker && \
