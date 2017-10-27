@@ -6,3 +6,5 @@ sudo groupadd -for -g ${DOCKER_GID} docker
 sudo usermod -aG docker user
 
 sudo usermod -aG www-data user
+
+mkdir -p ~/.ssh
