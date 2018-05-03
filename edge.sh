@@ -2,7 +2,7 @@
 
 DOCKER_GID=$(stat -c '%g' /var/run/docker.sock)
 
-env > /etc/environment
+sudo env > /etc/environment
 
 sudo groupadd -for -g ${DOCKER_GID} docker
 sudo usermod -aG docker user
