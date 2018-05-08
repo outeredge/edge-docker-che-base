@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 DOCKER_GID=$(stat -c '%g' /var/run/docker.sock)
 
