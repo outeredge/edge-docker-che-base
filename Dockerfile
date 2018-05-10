@@ -1,6 +1,6 @@
 FROM eclipse/stack-base:ubuntu
 
-ENV DOCKER_VERSION=17.03.1 \
+ENV DOCKER_VERSION=17.09.1 \
     UNISON=/projects/.unison \
     UNISONLOCALHOSTNAME=che-server
 
